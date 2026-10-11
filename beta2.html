@@ -440,7 +440,7 @@
     faders.forEach(fader => appearOnScroll.observe(fader));
     
     // Carrega status da planilha
-    if (WEB_APP_URL !== "COLE_AQUI_A_URL_DO_SEU_WEB_APP") {
+    if (WEB_APP_URL !== "https://script.google.com/macros/s/AKfycbz4p0FVWjTmU93zeMBEatIom_44bv8eU8cA8rqL_2sijhp9N-xy46XvmWsces15M8dm/exec") {
       fetch(WEB_APP_URL)
         .then(response => response.json())
         .then(data => {
