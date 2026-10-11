@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casamento - Cláudia & Antonio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+  
+  :root {
+    --bg-color: #fcfbf9;
+    --text-color: #2c2c2c;
+    --accent-color: #e5d9ce;
+    --card-bg: #ffffff;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  header {
+    padding: 40px 0 20px;
+  }
+  .arch-photo {
+    width: 280px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 140px 140px 0 0;
+    margin: 0 auto 20px;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  .hero-date {
+    font-size: 1.2em;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 2.5em;
+    margin: 10px 0;
+    line-height: 1.2;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #fff;
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    text-decoration: none;
+    margin: 20px 0;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+  }
+  .scroll-down {
+    font-size: 0.7em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    margin-top: 20px;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  }
+
+  /* Animações */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Contador e Info */
+  .countdown-section { padding: 40px 0; border-top: 1px solid #eaeaea; margin-top: 30px; }
+  .countdown-section p { text-transform: uppercase; font-size: 0.7em; letter-spacing: 2px; color: #666; }
+  .countdown-title { font-size: 2em; margin-bottom: 30px; }
+  .timer-grid { display: flex; justify-content: center; gap: 15px; }
+  .timer-box { text-align: center; }
+  .timer-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5em; display: block; }
+  .timer-label { font-size: 0.6em; text-transform: uppercase; letter-spacing: 2px; color: #888; }
+  .welcome-msg { font-size: 1.8em; padding: 40px 20px; line-height: 1.4; }
+
+  .info-cards { display: flex; flex-direction: column; gap: 15px; margin-bottom: 40px; }
+  .card { background: var(--card-bg); border: 1px solid #f0f0f0; border-radius: 20px; padding: 30px 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: transform 0.3s; }
+  .card:hover { transform: translateY(-5px); }
+  .card-icon { font-size: 1.5em; color: #aaa; margin-bottom: 10px; }
+  .card-title { font-size: 0.7em; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 15px; }
+  .card-content { font-size: 1.2em; font-family: 'Cormorant Garamond', serif; }
+  .card-subtext { font-size: 0.85em; color: #666; margin-top: 5px; font-family: 'Montserrat', sans-serif; }
+
+  /* Formulário e Presentes */
+  .rsvp-section { padding: 40px 0 20px; }
+  .rsvp-section h2 { font-size: 2.2em; margin-bottom: 10px; }
+  .deadline { font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .form-container { background: var(--card-bg); border-radius: 20px; padding: 30px 20px; border: 1px solid #f0f0f0; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+  .form-container h3 { text-align: center; font-size: 1.8em; margin-top: 0; }
+  .input-group { margin-bottom: 25px; }
+  label { display: block; font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: #555; }
+  input[type="text"] { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; box-sizing: border-box; background: #fafafa; transition: border-color 0.3s; }
+  input[type="text"]:focus { outline: none; border-color: var(--text-color); }
+  
+  .radio-option { display: flex; align-items: center; padding: 15px; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 10px; cursor: pointer; transition: 0.2s; }
+  .radio-option:hover { background: #fafafa; border-color: #bbb; }
+  .radio-option input { margin-right: 15px; accent-color: var(--text-color); width: 18px; height: 18px; }
+  .radio-option span { font-size: 0.9em; }
+  .radio-option.gift-select { border-color: #2c2c2c; }
+
+  .gifts-section { padding: 20px 0 50px; }
+  .gifts-section h2 { font-size: 2.2em; }
+  .gifts-desc { font-size: 0.95em; line-height: 1.6; margin-bottom: 30px; color: #555; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3em; }
+  
+  .gift-grid { display: flex; flex-direction: column; gap: 25px; }
+  
+  .gift-card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid #f0f0f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; transition: transform 0.3s, box-shadow 0.3s; }
+  .gift-card:hover:not(.esgotado) { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
+  .gift-img { width: 100%; height: 220px; object-fit: cover; }
+  .gift-info { padding: 20px; }
+  .gift-name { font-size: 1.5em; font-family: 'Cormorant Garamond', serif; margin: 0 0 15px; text-align: center; }
+
+  /* ESTILO PARA PRESENTE ESGOTADO AUTOMÁTICO */
+  .esgotado {
+    opacity: 0.6;
+    pointer-events: none;
+    filter: grayscale(80%);
+  }
+  .tag-esgotado {
+    background-color: #999;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: none;
+    margin-top: 10px;
+  }
+  .esgotado .tag-esgotado { display: block; }
+  .esgotado .gift-select { display: none; }
+
+  .final-submit { margin-top: 40px; }
+
+  footer { padding: 40px 0 60px; }
+  .monogram { font-size: 2.5em; font-family: 'Cormorant Garamond', serif; margin-bottom: 10px; }
+  .footer-names { font-size: 1.5em; margin: 10px 0; }
+  .footer-love { font-size: 0.7em; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-top: 20px; }
+
+  /* Tela de carregamento enquanto envia */
+  #loading-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.9); z-index: 9999; justify-content: center; align-items: center; flex-direction: column; }
+  .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #2c2c2c; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px;}
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div id="loading-overlay">
+  <div class="spinner"></div>
+  <h3 class="serif">Enviando confirmação...</h3>
+</div>
+
+<div class="container">
+  <header class="fade-in">
+    <img src="image_2.png" alt="Cláudia e Antonio" class="arch-photo">
+    <div class="hero-date serif">13 . 12 . 2026</div>
+    <h1>Cláudia Verena<br>&<br>Antonio Vidal</h1>
+    <a href="#rsvp" class="btn-primary">Confirmar Presença</a>
+    <div class="scroll-down">Deslize <br>↓</div>
+  </header>
+
+  <section class="countdown-section fade-in">
+    <p>Contagem Regressiva</p>
+    <div class="countdown-title serif">Faltam poucos dias...</div>
+    <div class="timer-grid" id="countdown">
+      <div class="timer-box"><span class="timer-num" id="days">00</span><span class="timer-label">Dias</span></div>
+      <div class="timer-box"><span class="timer-num" id="hours">00</span><span class="timer-label">Horas</span></div>
+      <div class="timer-box"><span class="timer-num" id="minutes">00</span><span class="timer-label">Minutos</span></div>
+      <div class="timer-box"><span class="timer-num" id="seconds">00</span><span class="timer-label">Segundos</span></div>
+    </div>
+  </section>
+
+  <div class="welcome-msg serif fade-in">
+    Será uma honra ter você conosco neste momento tão especial.
+  </div>
+
+  <section class="info-cards">
+    <div class="card fade-in">
+      <div class="card-icon">📅</div><div class="card-title">Data</div><div class="card-content">13/12/2026</div><div class="card-subtext">domingo</div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">⏰</div><div class="card-title">Horário</div><div class="card-content">16:00</div><div class="card-subtext">horário de Salvador</div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">📍</div><div class="card-title">Local</div><div class="card-content">Espaço Aliança Salvador</div><div class="card-subtext">Av. Beira Mar, 419 - 1º andar<br>Ribeira, Salvador - BA, 41415-055</div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO ÚNICO -->
+  <form id="casamento-form">
+    <section class="rsvp-section" id="rsvp">
+      <h2 class="fade-in">Posso contar com você?</h2>
+      <div class="deadline fade-in">♡ Confirme até 13/11/2026</div>
+      
+      <div class="form-container fade-in">
+        <h3>Identifique-se</h3>
+        <div class="input-group">
+          <label>Nome Completo</label>
+          <input type="text" name="Nome" required placeholder="Escreva seu nome completo">
+        </div>
+        <div class="input-group">
+          <label>Sua Resposta</label>
+          <label class="radio-option">
+            <input type="radio" name="Presenca" value="Sim, estarei presente" required>
+            <span>✔️ Sim, estarei presente</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="Presenca" value="Não poderei comparecer">
+            <span>✖️ Não poderei comparecer</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="gifts-section">
+      <div class="card-icon fade-in">🎁</div>
+      <h2 class="fade-in">Lista de Presentes</h2>
+      <p class="gifts-desc fade-in" id="loading-gifts-text">Carregando disponibilidade dos presentes...</p>
+      
+      <div class="gift-grid">
+        
+        <div class="gift-card fade-in" data-presente="Batedeira">
+          <img src="https://images.unsplash.com/photo-1578643463396-0997cb5328c1?w=500&q=80" class="gift-img" alt="Batedeira">
+          <div class="gift-info">
+            <h4 class="gift-name">Batedeira</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Batedeira">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Sanduicheira">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Sandwich-Maker.jpg/600px-Sandwich-Maker.jpg" class="gift-img" alt="Sanduicheira">
+          <div class="gift-info">
+            <h4 class="gift-name">Sanduicheira</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Sanduicheira">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Potes herméticos">
+          <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=500&q=80" class="gift-img" alt="Potes herméticos">
+          <div class="gift-info">
+            <h4 class="gift-name">Potes herméticos</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Potes herméticos">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Jogo de cama de casal">
+          <img src="https://images.unsplash.com/photo-1522771731478-44fb94010c7d?w=500&q=80" class="gift-img" alt="Jogo de cama de casal">
+          <div class="gift-info">
+            <h4 class="gift-name">Jogo de cama de casal</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Jogo de cama de casal">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Jogo de toalhas">
+          <img src="https://images.unsplash.com/photo-1616447262961-464879201f91?w=500&q=80" class="gift-img" alt="Jogo de toalhas">
+          <div class="gift-info">
+            <h4 class="gift-name">Jogo de toalhas</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Jogo de toalhas">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Aspirador de pó">
+          <img src="https://images.pexels.com/photos/4108715/pexels-photo-4108715.jpeg?auto=compress&cs=tinysrgb&w=500" class="gift-img" alt="Aspirador de pó">
+          <div class="gift-info">
+            <h4 class="gift-name">Aspirador de pó</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Aspirador de pó">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Espelho">
+          <img src="https://images.unsplash.com/photo-1618220179428-22790b46a0eb?w=500&q=80" class="gift-img" alt="Espelho">
+          <div class="gift-info">
+            <h4 class="gift-name">Espelho</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Espelho">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Almofadas de sofá">
+          <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=500&q=80" class="gift-img" alt="Almofadas de sofá">
+          <div class="gift-info">
+            <h4 class="gift-name">Almofadas de sofá</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Almofadas de sofá">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Jogo de panelas">
+          <img src="https://images.unsplash.com/photo-1584990347449-a6e4f32a58d5?w=500&q=80" class="gift-img" alt="Jogo de panelas">
+          <div class="gift-info">
+            <h4 class="gift-name">Jogo de panelas</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Jogo de panelas">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+        <div class="gift-card fade-in" data-presente="Cafeteira">
+          <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=500&q=80" class="gift-img" alt="Cafeteira">
+          <div class="gift-info">
+            <h4 class="gift-name">Cafeteira</h4>
+            <label class="radio-option gift-select">
+              <input type="radio" name="PresenteEscolhido" value="Cafeteira">
+              <span>🎁 Quero dar este presente</span>
+            </label>
+            <div class="tag-esgotado">Já escolhido 🤍</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTÃO FINAL ÚNICO -->
+      <div class="final-submit fade-in">
+        <button type="submit" id="btn-enviar" class="btn-primary" style="width: 100%; border-color: #2c2c2c; background: #2c2c2c; color: #fff; padding: 20px; font-size: 1.1em; border-radius: 15px;">
+          Enviar Resposta Completa
+        </button>
+      </div>
+    </section>
+  </form>
+  <!-- FIM DO FORMULÁRIO ÚNICO -->
+
+  <footer class="fade-in">
+    <div class="monogram">♡<br>C & A</div>
+    <h2 class="footer-names">Cláudia & Antonio</h2>
+    <div class="hero-date serif">13 . 12 . 2026</div>
+    <div class="footer-love">Com amor, até lá ♡</div>
+  </footer>
+</div>
+
+<script>
+  // NÃO ESQUEÇA DE COLAR SUA URL ABAIXO:
+  const WEB_APP_URL = "COLE_AQUI_A_URL_DO_SEU_WEB_APP";
+
+  /* --- CONTAGEM REGRESSIVA --- */
+  const countDownDate = new Date("Dec 13, 2026 16:00:00").getTime();
+  setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
+    document.getElementById("days").innerHTML = ("0" + Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)))).slice(-2);
+    document.getElementById("hours").innerHTML = ("0" + Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))).slice(-2);
+    document.getElementById("minutes").innerHTML = ("0" + Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)))).slice(-2);
+    document.getElementById("seconds").innerHTML = ("0" + Math.max(0, Math.floor((distance % (1000 * 60)) / 1000))).slice(-2);
+  }, 1000);
+
+  /* --- EFEITOS FADE-IN --- */
+  document.addEventListener("DOMContentLoaded", function() {
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+    faders.forEach(fader => appearOnScroll.observe(fader));
+    
+    // --- LÓGICA DE INTEGRAÇÃO COM GOOGLE SHEETS --- //
+    if (WEB_APP_URL !== "COLE_AQUI_A_URL_DO_SEU_WEB_APP") {
+      fetch(WEB_APP_URL)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('loading-gifts-text').innerText = "Sua presença é o nosso maior presente — mas, se quiser nos mimar, escolha um item abaixo e confirme tudo no final da página.";
+          for (let presenteNome in data) {
+            if (data[presenteNome] === "Escolhido") {
+              let cardElement = document.querySelector(`.gift-card[data-presente="${presenteNome}"]`);
+              if (cardElement) {
+                cardElement.classList.add('esgotado');
+                let radioInput = cardElement.querySelector('input[type="radio"]');
+                if (radioInput) radioInput.disabled = true;
+              }
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao carregar lista de presentes', error);
+        });
+    }
+  });
+
+  // Enviar Formulário
+  document.getElementById('casamento-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (WEB_APP_URL === "COLE_AQUI_A_URL_DO_SEU_WEB_APP") {
+      alert("Aviso: A URL do Google Sheets não foi configurada no código.");
+      return;
+    }
+    
+    document.getElementById('loading-overlay').style.display = 'flex';
+    let formData = new FormData(this);
+    
+    fetch(WEB_APP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).then(() => {
+      document.getElementById('loading-overlay').style.display = 'none';
+      alert('Sua resposta e escolha foram registradas com sucesso! Muito obrigado(a).');
+      window.location.reload(); 
+    }).catch(error => {
+      document.getElementById('loading-overlay').style.display = 'none';
+      alert('Ocorreu um erro na comunicação. Tente novamente.');
+    });
+  });
+</script>
+
+</body>
+</html>
