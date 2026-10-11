@@ -413,7 +413,7 @@
 
 <script>
   // NÃO ESQUEÇA DE COLAR SUA NOVA URL AQUI:
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz4p0FVWjTmU93zeMBEatIom_44bv8eU8cA8rqL_2sijhp9N-xy46XvmWsces15M8dm/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxgQ6Vqm95EMWrSwq94c8k9kR34r2cfcOT5OeoZ1ZX63jIbXEPLbGbqBCGqY-ZpxlWP/exec";
 //teste
   /* --- CONTAGEM REGRESSIVA --- */
   const countDownDate = new Date("Dec 13, 2026 16:00:00").getTime();
@@ -440,7 +440,7 @@
     faders.forEach(fader => appearOnScroll.observe(fader));
     
     // Carrega status da planilha
-    if (WEB_APP_URL !== "https://script.google.com/macros/s/AKfycbz4p0FVWjTmU93zeMBEatIom_44bv8eU8cA8rqL_2sijhp9N-xy46XvmWsces15M8dm/exec") {
+    if (WEB_APP_URL !== "https://script.google.com/macros/s/AKfycbxgQ6Vqm95EMWrSwq94c8k9kR34r2cfcOT5OeoZ1ZX63jIbXEPLbGbqBCGqY-ZpxlWP/exec") {
       fetch(WEB_APP_URL)
         .then(response => response.json())
         .then(data => {
@@ -473,7 +473,7 @@
   // Enviar Formulário
   document.getElementById('casamento-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    if (WEB_APP_URL === "https://script.google.com/macros/s/AKfycbz4p0FVWjTmU93zeMBEatIom_44bv8eU8cA8rqL_2sijhp9N-xy46XvmWsces15M8dm/exec") {
+    if (WEB_APP_URL === "https://script.google.com/macros/s/AKfycbxgQ6Vqm95EMWrSwq94c8k9kR34r2cfcOT5OeoZ1ZX63jIbXEPLbGbqBCGqY-ZpxlWP/exec") {
       alert("Aviso: A URL do Google Sheets não foi configurada no código.");
       return;
     }
